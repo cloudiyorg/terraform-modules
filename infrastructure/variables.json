@@ -24,7 +24,96 @@
         "10.0.5.0/24",
         "10.0.6.0/24"
       ]
+    },
+    "db_username": {
+      "type": "string",
+      "default": "admin"
+    },
+    "db_password": {
+      "type": "string",
+      "default": "admin"
+    },
+    "db_storage_type": {
+      "type": "string",
+      "default": "gp2"
+    },
+    "db_allocated_storage": {
+      "type": "number",
+      "default": 10
+    },
+    "db_engine": {
+      "type": "string",
+      "default": "postgres"
+    },
+    "db_engine_version": {
+      "type": "string",
+      "default": "14.4"
+    },
+    "db_name": {
+      "type": "string",
+      "default": "project-db"
+    },
+    "db_instance_type": {
+      "type": "string",
+      "default": "db.t3.medium"
+    },
+    "db_publicly_accessible": {
+      "type": "bool",
+      "default": false
+    },
+    "db_multi_az": {
+      "type": "bool",
+      "default": false
+    },
+    "db_skip_final_snapshot": {
+      "type": "bool",
+      "default": false
+    },
+    "db_apply_immediately": {
+      "type": "bool",
+      "default": true
+    },
+    "db_allow_major_version_upgrade": {
+      "type": "bool",
+      "default": true
+    },
+    "db_performance_insights_enabled": {
+      "type": "bool",
+      "default": true
+    },
+    "db_performance_insights_retention_period": {
+      "type": "number",
+      "default": 7
+    },
+    "db_final_snapshot_identifier": {
+      "type": "string",
+      "default": "project-db-snapshot"
+    },
+    "db_snapshot_identifier": {
+      "type": "string",
+      "default": ""
+    },
+    "db_backup_retention_period": {
+      "type": "number",
+      "default": 7
+    },
+    "db_maintenance_window": {
+      "type": "string",
+      "default": "Sun:02:00-Sun:05:00"
+    },
+    "db_backup_window": {
+      "type": "string",
+      "default": "02:00-05:00"
+    },
+    "db_deletion_protection": {
+      "type": "bool",
+      "default": false
+    },
+    "db_enabled_cloudwatch_logs_exports": {
+      "type": "list(string)",
+      "default": [
+        "upgrade"
+      ]
     }
   }
 }
-
