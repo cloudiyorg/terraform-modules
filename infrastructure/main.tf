@@ -40,3 +40,18 @@ module "rds" {
   db_enabled_cloudwatch_logs_exports        = local.terraform_variables.variable.db_enabled_cloudwatch_logs_exports.default
   db_performance_insights_retention_period  = local.terraform_variables.variable.db_performance_insights_retention_period.default
 }
+
+module "s3" {
+  source                       = "../modules/s3"
+  env                          = local.terraform_variables.locals.env
+  region                       = local.terraform_variables.locals.region
+  s3_bucket_name               = local.terraform_variables.variable.s3_bucket_name.default
+  s3_versioning                = local.terraform_variables.variable.s3_versioning.default
+  s3_lifecycle_rule_id         = local.terraform_variables.variable.s3_lifecycle_rule_id.default
+  s3_lifecycle_rule_status     = local.terraform_variables.variable.s3_lifecycle_rule_status.default
+  s3_lifecycle_rule_expiration = local.terraform_variables.variable.s3_lifecycle_rule_expiration.default
+  s3_block_public_acls         = local.terraform_variables.variable.s3_block_public_acls.default
+  s3_block_public_policy       = local.terraform_variables.variable.s3_block_public_policy.default
+  s3_ignore_public_acls        = local.terraform_variables.variable.s3_ignore_public_acls.default
+  s3_restrict_public_buckets   = local.terraform_variables.variable.s3_restrict_public_buckets.default
+}

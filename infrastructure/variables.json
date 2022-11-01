@@ -114,6 +114,42 @@
       "default": [
         "upgrade"
       ]
+    },
+    "s3_bucket_name": {
+      "type": "string",
+      "default": "project-s3-bucket-name"
+    },
+    "s3_versioning": {
+      "type": "string",
+      "default": "Disabled"
+    },
+    "s3_lifecycle_rule_id": {
+      "type": "string",
+      "default": "all"
+    },
+    "s3_lifecycle_rule_status": {
+      "type": "string",
+      "default": "Disabled"
+    },
+    "s3_lifecycle_rule_expiration": {
+      "type": "number",
+      "default": 30
+    },
+    "s3_block_public_acls": {
+      "type": "bool",
+      "default": true
+    },
+    "s3_block_public_policy": {
+      "type": "bool",
+      "default": true
+    },
+    "s3_ignore_public_acls": {
+      "type": "bool",
+      "default": true
+    },
+    "s3_restrict_public_buckets": {
+      "type": "bool",
+      "default": true
     }
   }
 }
