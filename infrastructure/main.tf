@@ -3,7 +3,7 @@ locals {
 }
 
 module "vpc" {
-  source              = "../modules/vpc"
+  source              = "git@github.com:clouddiy/terraform-modules.git//modules/vpc"
   vpc_cidr_block      = local.terraform_variables.variable.vpc_cidr_blocks.default
   env                 = local.terraform_variables.locals.env
   region              = local.terraform_variables.locals.region
@@ -54,4 +54,21 @@ module "s3" {
   s3_block_public_policy       = local.terraform_variables.variable.s3_block_public_policy.default
   s3_ignore_public_acls        = local.terraform_variables.variable.s3_ignore_public_acls.default
   s3_restrict_public_buckets   = local.terraform_variables.variable.s3_restrict_public_buckets.default
+}
+
+module "cloudfront" {
+  source                          = "../modules/cloudfront"
+  env                             = local.terraform_variables.locals.env
+  region                          = local.terraform_variables.locals.region
+  cloudfront_distribution_aliases = local.terraform_variables.variable.cloudfront_distribution_aliases.default
+  cloudfront_distribution_enable  = local.terraform_variables.variable.cloudfront_distribution_enable.default
+  cloudfront_distribution_cache_allowed_methods  = local.terraform_variables.variable.cloudfront_distribution_cache_allowed_methods.default
+  cloudfront_distribution_cache_cached_methods   = local.terraform_variables.variable.cloudfront_distribution_cache_cached_methods.default
+  cloudfront_distribution_cache_target_origin_id = local.terraform_variables.variable.cloudfront_distribution_cache_target_origin_id.default
+  cloudfront_distribution_cache_viewer_protocol_policy = local.terraform_variables.variable.cloudfront_distribution_cache_viewer_protocol_policy.default
+  cloudfront_distribution_cache_compress         = local.terraform_variables.variable.cloudfront_distribution_cache_compress.default
+  cloudfront_distribution_default_root_object    = local.terraform_variables.variable.cloudfront_distribution_default_root_object.default
+  cloudfront_distribution_origin_domain_name     = local.terraform_variables.variable.cloudfront_distribution_origin_domain_name.default
+  cloudfront_distribution_geo_restriction_type   = local.terraform_variables.variable.cloudfront_distribution_geo_restriction_type.default
+  cloudfront_distribution_viewer_certificate     = local.terraform_variables.variable.cloudfront_distribution_viewer_certificate.default
 }

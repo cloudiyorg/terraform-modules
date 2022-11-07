@@ -150,6 +150,53 @@
     "s3_restrict_public_buckets": {
       "type": "bool",
       "default": true
+    },
+    "cloudfront_distribution_aliases": {
+      "type": "list(string)",
+      "default": [
+        "www.project.com",
+        "project.com"
+      ]
+    },
+    "cloudfront_distribution_enable": {
+      "type": "bool",
+      "default": true
+    },
+    "cloudfront_distribution_cache_allowed_methods": {
+      "type": "list(string)",
+      "default": ["GET", "HEAD", "OPTIONS"]
+    },
+    "cloudfront_distribution_cache_cached_methods": {
+      "type": "list(string)",
+      "default": ["GET", "HEAD"]
+    },
+    "cloudfront_distribution_cache_target_origin_id": {
+      "type": "string",
+      "default": "project-s3-bucket-name"
+    },
+    "cloudfront_distribution_cache_viewer_protocol_policy": {
+      "type": "string",
+      "default": "allow-all"
+    },
+    "cloudfront_distribution_cache_compress": {
+      "type": "bool",
+      "default": true
+    },
+    "cloudfront_distribution_default_root_object": {
+      "type": "string",
+      "default": "index.html"
+    },
+    "cloudfront_distribution_origin_domain_name": {
+      "type": "string",
+      "default": "project-s3-bucket-name.s3.amazonaws.com"
+    },
+    "cloudfront_distribution_geo_restriction_type": {
+      "type": "string",
+      "default": "none"
+    },
+    "cloudfront_distribution_viewer_certificate": {
+      "type": "bool",
+      "default": true
     }
   }
 }
