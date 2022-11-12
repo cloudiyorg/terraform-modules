@@ -72,3 +72,10 @@ module "cloudfront" {
   cloudfront_distribution_geo_restriction_type   = local.terraform_variables.variable.cloudfront_distribution_geo_restriction_type.default
   cloudfront_distribution_viewer_certificate     = local.terraform_variables.variable.cloudfront_distribution_viewer_certificate.default
 }
+
+module "acm" {
+  source              = "../modules/acm"
+  env                 = local.terraform_variables.locals.env
+  region              = local.terraform_variables.locals.region
+  acm_domain_name     = local.terraform_variables.variable.acm_domain_name.default
+}

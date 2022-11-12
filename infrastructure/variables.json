@@ -197,6 +197,10 @@
     "cloudfront_distribution_viewer_certificate": {
       "type": "bool",
       "default": true
+    },
+    "acm_domain_name": {
+      "type": "string",
+      "default": "*.project.com"
     }
   }
 }
