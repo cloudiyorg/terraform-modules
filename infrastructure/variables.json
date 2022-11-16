@@ -201,6 +201,114 @@
     "acm_domain_name": {
       "type": "string",
       "default": "*.project.com"
+    },
+    "loadbalancer_enable_deletion_protection": {
+      "type": "bool",
+      "default": false
+    },
+    "loadbalancer_name": {
+      "type": "string",
+      "default": "Project-LoadBalancer"
+    },
+    "loadbalancer_internal": {
+      "type": "bool",
+      "default": false
+    },
+    "loadbalancer_type": {
+      "type": "string",
+      "default": "application"
+    },
+    "loadbalancer_https_listener_protocol": {
+      "type": "string",
+      "default": "HTTPS"
+    },
+    "loadbalancer_https_listener_port": {
+      "type": "number",
+      "default": 443
+    },
+    "loadbalancer_https_listener_default_action_type": {
+      "type": "string",
+      "default": "forward"
+    },
+    "loadbalancer_http_listener_protocol": {
+      "type": "string",
+      "default": "HTTP"
+    },
+    "loadbalancer_http_listener_port": {
+      "type": "number",
+      "default": 80
+    },
+    "loadbalancer_http_listener_default_action_type": {
+      "type": "string",
+      "default": "redirect"
+    },
+    "loadbalancer_http_listener_default_action_redirect_port": {
+      "type": "string",
+      "default": "443"
+    },
+    "loadbalancer_http_listener_default_action_redirect_protocol": {
+      "type": "string",
+      "default": "HTTPS"
+    },
+    "loadbalancer_http_listener_default_action_redirect_status_code": {
+      "type": "string",
+      "default": "HTTP_301"
+    },
+    "loadbalancer_default_target_group_name": {
+      "type": "string",
+      "default": "project-default-target-group"
+    },
+    "loadbalancer_default_target_group_port": {
+      "type": "number",
+      "default": 80
+    },
+    "loadbalancer_default_target_group_protocol": {
+      "type": "string",
+      "default": "HTTP"
+    },
+    "loadbalancer_default_target_group_target_type": {
+      "type": "string",
+      "default": "ip"
+    },
+    "loadbalancer_default_target_group_health_check_path": {
+      "type": "string",
+      "default": "/health"
+    },
+    "loadbalancer_default_target_group_health_check_port": {
+      "type": "string",
+      "default": "traffic-port"
+    },
+    "loadbalancer_default_target_group_health_check_healthy_threshold": {
+      "type": "number",
+      "default": 5
+    },
+    "loadbalancer_default_target_group_health_check_unhealthy_threshold": {
+      "type": "number",
+      "default": 2
+    },
+    "loadbalancer_default_target_group_health_check_timeout": {
+      "type": "number",
+      "default": 5
+    },
+    "loadbalancer_default_target_group_health_check_protocol": {
+      "type": "string",
+      "default": "HTTP"
+    },
+    "loadbalancer_default_target_group_health_check_interval": {
+      "type": "number",
+      "default": 30
+    },
+    "loadbalancer_default_target_group_health_check_matcher": {
+      "type": "string",
+      "default": "200"
+    },
+    "loadbalancer_listener_rule_action_type": {
+      "type": "string",
+      "default": "forward"
+    },
+    "loadbalancer_listener_rule_condition_host_header_values": {
+      "type": "list(string)",
+      "default": ["project.com"]
     }
   }
 }

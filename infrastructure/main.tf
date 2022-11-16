@@ -79,3 +79,39 @@ module "acm" {
   region              = local.terraform_variables.locals.region
   acm_domain_name     = local.terraform_variables.variable.acm_domain_name.default
 }
+
+module "loadbalancer" {
+  source                   = "../modules/loadbalancer"
+  env                      = local.terraform_variables.locals.env
+  region              = local.terraform_variables.locals.region
+  vpc_id                   = module.vpc.vpc_id
+  public_subnet_ids        = module.vpc.public_subnet.*.id
+  acm_certificate_arn      = module.acm.project_acm_certificate_arn
+  loadbalancer_enable_deletion_protection      = local.terraform_variables.variable.loadbalancer_enable_deletion_protection.default
+  loadbalancer_name      = local.terraform_variables.variable.loadbalancer_name.default
+  loadbalancer_internal      = local.terraform_variables.variable.loadbalancer_internal.default
+  loadbalancer_type      = local.terraform_variables.variable.loadbalancer_type.default
+  loadbalancer_https_listener_protocol      = local.terraform_variables.variable.loadbalancer_https_listener_protocol.default
+  loadbalancer_https_listener_port      = local.terraform_variables.variable.loadbalancer_https_listener_port.default
+  loadbalancer_https_listener_default_action_type      = local.terraform_variables.variable.loadbalancer_https_listener_default_action_type.default
+  loadbalancer_http_listener_protocol      = local.terraform_variables.variable.loadbalancer_http_listener_protocol.default
+  loadbalancer_http_listener_port      = local.terraform_variables.variable.loadbalancer_http_listener_port.default
+  loadbalancer_http_listener_default_action_type      = local.terraform_variables.variable.loadbalancer_http_listener_default_action_type.default
+  loadbalancer_http_listener_default_action_redirect_port      = local.terraform_variables.variable.loadbalancer_http_listener_default_action_redirect_port.default
+  loadbalancer_http_listener_default_action_redirect_protocol      = local.terraform_variables.variable.loadbalancer_http_listener_default_action_redirect_protocol.default
+  loadbalancer_http_listener_default_action_redirect_status_code      = local.terraform_variables.variable.loadbalancer_http_listener_default_action_redirect_status_code.default
+  loadbalancer_default_target_group_name      = local.terraform_variables.variable.loadbalancer_default_target_group_name.default
+  loadbalancer_default_target_group_port      = local.terraform_variables.variable.loadbalancer_default_target_group_port.default
+  loadbalancer_default_target_group_protocol      = local.terraform_variables.variable.loadbalancer_default_target_group_protocol.default
+  loadbalancer_default_target_group_target_type      = local.terraform_variables.variable.loadbalancer_default_target_group_target_type.default
+  loadbalancer_default_target_group_health_check_path      = local.terraform_variables.variable.loadbalancer_default_target_group_health_check_path.default
+  loadbalancer_default_target_group_health_check_port      = local.terraform_variables.variable.loadbalancer_default_target_group_health_check_port.default
+  loadbalancer_default_target_group_health_check_healthy_threshold      = local.terraform_variables.variable.loadbalancer_default_target_group_health_check_healthy_threshold.default
+  loadbalancer_default_target_group_health_check_unhealthy_threshold      = local.terraform_variables.variable.loadbalancer_default_target_group_health_check_unhealthy_threshold.default
+  loadbalancer_default_target_group_health_check_timeout      = local.terraform_variables.variable.loadbalancer_default_target_group_health_check_timeout.default
+  loadbalancer_default_target_group_health_check_protocol      = local.terraform_variables.variable.loadbalancer_default_target_group_health_check_protocol.default
+  loadbalancer_default_target_group_health_check_interval      = local.terraform_variables.variable.loadbalancer_default_target_group_health_check_interval.default
+  loadbalancer_default_target_group_health_check_matcher      = local.terraform_variables.variable.loadbalancer_default_target_group_health_check_matcher.default
+  loadbalancer_listener_rule_action_type      = local.terraform_variables.variable.loadbalancer_listener_rule_action_type.default
+  loadbalancer_listener_rule_condition_host_header_values      = local.terraform_variables.variable.loadbalancer_listener_rule_condition_host_header_values.default
+}
