@@ -309,6 +309,14 @@
     "loadbalancer_listener_rule_condition_host_header_values": {
       "type": "list(string)",
       "default": ["project.com"]
+    },
+    "ecs_cluster_name": {
+      "type": "string",
+      "default": "Project-ECS-Cluster"
+    },
+    "ecs_container_insights_settings": {
+      "type": "string",
+      "default": "enabled"
     }
   }
 }
