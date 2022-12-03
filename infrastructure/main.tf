@@ -115,3 +115,9 @@ module "loadbalancer" {
   loadbalancer_listener_rule_action_type      = local.terraform_variables.variable.loadbalancer_listener_rule_action_type.default
   loadbalancer_listener_rule_condition_host_header_values      = local.terraform_variables.variable.loadbalancer_listener_rule_condition_host_header_values.default
 }
+
+module "ecs" {
+  source              = "../modules/ecs"
+  env                 = local.terraform_variables.locals.env
+  region              = local.terraform_variables.locals.region
+}
