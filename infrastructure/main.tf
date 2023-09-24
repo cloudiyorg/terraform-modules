@@ -123,3 +123,20 @@ module "ecs" {
   ecs_cluster_name                 = local.terraform_variables.variable.ecs_cluster_name.default
   ecs_container_insights_settings  = local.terraform_variables.variable.ecs_container_insights_settings.default
 }
+
+module "api_gateway" {
+  source                           = "../modules/api_gateway"
+  env                              = local.terraform_variables.locals.env
+  region                           = local.terraform_variables.locals.region
+  api_gateway_api_key_name         = local.terraform_variables.variable.api_gateway_api_key_name.default
+  api_gateway_rest_api_name        = local.terraform_variables.variable.api_gateway_rest_api_name.default
+  api_gateway_rest_api_disable_execute_api_endpoint        = local.terraform_variables.variable.api_gateway_rest_api_disable_execute_api_endpoint.default
+  api_gateway_rest_api_endpoint_configuration_types        = local.terraform_variables.variable.api_gateway_rest_api_endpoint_configuration_types.default
+  api_gateway_api_gateway_usage_plan_name        = local.terraform_variables.variable.api_gateway_api_gateway_usage_plan_name.default
+  api_gateway_usage_plan_key_key_type        = local.terraform_variables.variable.api_gateway_usage_plan_key_key_type.default
+  api_gateway_stage_stage_name        = local.terraform_variables.variable.api_gateway_stage_stage_name.default
+  api_gateway_stage_cache_cluster_enabled        = local.terraform_variables.variable.api_gateway_stage_cache_cluster_enabled.default
+  api_gateway_stage_cache_cluster_size        = local.terraform_variables.variable.api_gateway_stage_cache_cluster_size.default
+  api_gateway_resource_path_part        = local.terraform_variables.variable.api_gateway_resource_path_part.default
+  api_gateway_integration_uri        = local.terraform_variables.variable.api_gateway_integration_uri.default
+}
