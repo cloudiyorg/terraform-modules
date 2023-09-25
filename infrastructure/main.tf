@@ -140,3 +140,14 @@ module "api_gateway" {
   api_gateway_resource_path_part        = local.terraform_variables.variable.api_gateway_resource_path_part.default
   api_gateway_integration_uri        = local.terraform_variables.variable.api_gateway_integration_uri.default
 }
+
+module "lambda" {
+  source                           = "../modules/lambda"
+  env                              = local.terraform_variables.locals.env
+  region                           = local.terraform_variables.locals.region
+  account-id                           = local.terraform_variables.locals.account-id[0]
+  lambda_function_name        = local.terraform_variables.variable.lambda_function_name.default
+  lambda_function_handler        = local.terraform_variables.variable.lambda_function_handler.default
+  lambda_function_runtime        = local.terraform_variables.variable.lambda_function_runtime.default
+  lambda_function_filename        = local.terraform_variables.variable.lambda_function_filename.default
+}
